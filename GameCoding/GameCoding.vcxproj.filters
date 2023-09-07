@@ -21,6 +21,15 @@
     <Filter Include="소스 파일\99. Headers\ETC">
       <UniqueIdentifier>{5b143036-bc3f-4f9f-b39f-e20e9f6b4b0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\03. Objects">
+      <UniqueIdentifier>{73e227b7-df95-4bed-99b6-789a480b6062}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scenes">
+      <UniqueIdentifier>{e6340a73-ff49-46df-b18f-3b3933dbccd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scenes\Game">
+      <UniqueIdentifier>{166d5234-139d-46eb-8267-f1f6ba2e9a7f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCoding.h">
@@ -56,6 +65,21 @@
     <ClInclude Include="TimeManager.h">
       <Filter>소스 파일\01. Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\02. Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="DevScene.h">
+      <Filter>소스 파일\02. Scenes\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>소스 파일\02. Scenes\Game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GameCoding.rc">
@@ -85,6 +109,21 @@
     </ClCompile>
     <ClCompile Include="TimeManager.cpp">
       <Filter>소스 파일\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\02. Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="DevScene.cpp">
+      <Filter>소스 파일\02. Scenes\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>소스 파일\02. Scenes\Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

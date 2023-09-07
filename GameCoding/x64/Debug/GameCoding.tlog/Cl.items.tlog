@@ -1,5 +1,10 @@
-D:\GitRepository\WinAPI\GameCoding\Game.cpp;D:\GitRepository\WinAPI\GameCoding\x64\Debug\Game.obj
-D:\GitRepository\WinAPI\GameCoding\GameCoding.cpp;D:\GitRepository\WinAPI\GameCoding\x64\Debug\GameCoding.obj
-D:\GitRepository\WinAPI\GameCoding\InputManager.cpp;D:\GitRepository\WinAPI\GameCoding\x64\Debug\InputManager.obj
-D:\GitRepository\WinAPI\GameCoding\pch.cpp;D:\GitRepository\WinAPI\GameCoding\x64\Debug\pch.obj
-D:\GitRepository\WinAPI\GameCoding\TimeManager.cpp;D:\GitRepository\WinAPI\GameCoding\x64\Debug\TimeManager.obj
+D:\GitRepository\API\GameCoding\DevScene.cpp;D:\GitRepository\API\GameCoding\x64\Debug\DevScene.obj
+D:\GitRepository\API\GameCoding\Game.cpp;D:\GitRepository\API\GameCoding\x64\Debug\Game.obj
+D:\GitRepository\API\GameCoding\GameCoding.cpp;D:\GitRepository\API\GameCoding\x64\Debug\GameCoding.obj
+D:\GitRepository\API\GameCoding\GameScene.cpp;D:\GitRepository\API\GameCoding\x64\Debug\GameScene.obj
+D:\GitRepository\API\GameCoding\InputManager.cpp;D:\GitRepository\API\GameCoding\x64\Debug\InputManager.obj
+D:\GitRepository\API\GameCoding\pch.cpp;D:\GitRepository\API\GameCoding\x64\Debug\pch.obj
+D:\GitRepository\API\GameCoding\Scene.cpp;D:\GitRepository\API\GameCoding\x64\Debug\Scene.obj
+D:\GitRepository\API\GameCoding\SceneManager.cpp;D:\GitRepository\API\GameCoding\x64\Debug\SceneManager.obj
+D:\GitRepository\API\GameCoding\TimeManager.cpp;D:\GitRepository\API\GameCoding\x64\Debug\TimeManager.obj
+D:\GitRepository\API\GameCoding\Utils.cpp;D:\GitRepository\API\GameCoding\x64\Debug\Utils.obj
