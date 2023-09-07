@@ -1,0 +1,5 @@
+﻿  Game.cpp
+D:\GitRepository\WinAPI\GameCoding\Game.cpp(33,13): warning C4244: '초기화 중': 'uint64'에서 'uint32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  InputManager.cpp
+  코드를 생성하고 있습니다...
+  GameCoding.vcxproj -> D:\GitRepository\WinAPI\x64\Debug\GameCoding.exe
