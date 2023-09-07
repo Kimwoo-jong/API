@@ -10,6 +10,5 @@ public:
 	virtual void Render(HDC hdc) abstract;
 
 protected:
-
-
+	
 };

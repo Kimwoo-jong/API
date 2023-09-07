@@ -39,6 +39,12 @@ void DevScene::Update()
 	{
 		_playerPos.y += _speed * deltaTime;
 	}
+
+	if (GET_SINGLE(InputManager)->GetButtonDown(KeyType::SpaceBar))
+	{
+		// 투사체 발사
+
+	}
 }
 
 void DevScene::Render(HDC hdc)
