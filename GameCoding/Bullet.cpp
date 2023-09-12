@@ -24,7 +24,39 @@ void Bullet::Update()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
-	_pos.y -= deltaTime * _stat.speed;
+	//
+	if (_target == nullptr)
+	{
+		// 각도를 적용하여 바꿔야 함.
+		// 스칼라 값을 하나하나씩 구해준 것.
+		_pos.x += _stat.speed * deltaTime * ::cos(_angle);
+		_pos.y -= _stat.speed * deltaTime * ::sin(_angle);
+
+		_sumTime += deltaTime;
+		if (_sumTime >= 0.2f)
+		{
+			const vector<Object*>& objects = GET_SINGLE(ObjectManager)->GetObjects();
+			for (Object* object : objects)
+			{
+				if (object->GetObjectType() == ObjectType::Monster)
+				{
+					_target = object;
+					break;
+				}
+			}
+		}
+	}
+	else
+	{
+		// 타겟의 위치 - 미사일의 현재 위치
+		// _target->GetPos() << 는 위험한 방식, 메모리 오염
+		// 오브젝트마다 id 를 달거나, 스마트 포인터 사용
+		Vector dir = _target->GetPos() - GetPos();
+		dir.Normalize();
+
+		Vector moveDir = dir * _stat.speed * deltaTime;
+		_pos += moveDir;
+	}
 
 	// 충돌
 	const vector<Object*> objects = GET_SINGLE(ObjectManager)->GetObjects();
@@ -36,12 +68,11 @@ void Bullet::Update()
 		if(object->GetObjectType() != ObjectType::Monster)
 			continue;
 
-		Pos p1 = GetPos();
-		Pos p2 = object->GetPos();
+		Vector p1 = GetPos();
+		Vector p2 = object->GetPos();
 
-		const float dx = p1.x - p2.x;
-		const float dy = p1.y - p2.y;
-		float dist = sqrt(dx * dx + dy * dy);
+		Vector dir = p2 - p1;
+		float dist = dir.Length();
 
 		if (dist < 25)
 		{
