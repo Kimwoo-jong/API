@@ -2,6 +2,9 @@
 #include "Bullet.h"
 #include "TimeManager.h"
 #include "ObjectManager.h"
+#include "SceneManager.h"
+#include "FortressScene.h"
+#include "UIManager.h"
 
 Bullet::Bullet() : Object(ObjectType::Projectile)
 {
@@ -15,77 +18,52 @@ Bullet::~Bullet()
 
 void Bullet::Init()
 {
-	_stat.hp = 1;
-	_stat.maxHp = 1;
-	_stat.speed = 600;
+
 }
 
 void Bullet::Update()
 {
 	float deltaTime = GET_SINGLE(TimeManager)->GetDeltaTime();
 
-	//
-	if (_target == nullptr)
-	{
-		// 각도를 적용하여 바꿔야 함.
-		// 스칼라 값을 하나하나씩 구해준 것.
-		_pos.x += _stat.speed * deltaTime * ::cos(_angle);
-		_pos.y -= _stat.speed * deltaTime * ::sin(_angle);
+	// 바람
+	float windPercent = GET_SINGLE(UIManager)->GetWindPercent();
+	_speed.x += 15 * deltaTime * windPercent;
 
-		_sumTime += deltaTime;
-		if (_sumTime >= 0.2f)
-		{
-			const vector<Object*>& objects = GET_SINGLE(ObjectManager)->GetObjects();
-			for (Object* object : objects)
-			{
-				if (object->GetObjectType() == ObjectType::Monster)
-				{
-					_target = object;
-					break;
-				}
-			}
-		}
-	}
-	else
-	{
-		// 타겟의 위치 - 미사일의 현재 위치
-		// _target->GetPos() << 는 위험한 방식, 메모리 오염
-		// 오브젝트마다 id 를 달거나, 스마트 포인터 사용
-		Vector dir = _target->GetPos() - GetPos();
-		dir.Normalize();
+	// 중력
+	//Vector g{ 0, 1000 * deltaTime };
+	_speed.y += 1000 * deltaTime;
 
-		Vector moveDir = dir * _stat.speed * deltaTime;
-		_pos += moveDir;
-	}
+	// 이동
+	_pos += _speed * deltaTime;
 
 	// 충돌
-	const vector<Object*> objects = GET_SINGLE(ObjectManager)->GetObjects();
+	const vector<Object*>& objects = GET_SINGLE(ObjectManager)->GetObjects();
 	for (Object* object : objects)
 	{
-		if(object == this)
+		if(object->GetObjectType() != ObjectType::Player)
+			continue;
+		if(object == _owner)
 			continue;
 
-		if(object->GetObjectType() != ObjectType::Monster)
-			continue;
-
-		Vector p1 = GetPos();
-		Vector p2 = object->GetPos();
-
-		Vector dir = p2 - p1;
-		float dist = dir.Length();
-
-		if (dist < 25)
+		Vector dir = _pos - object->GetPos();
+		if (dir.Length() < _radius * object->GetRadius())
 		{
-			// 괜찮은지 체크
-			GET_SINGLE(ObjectManager)->Remove(object);
+			FortressScene* scene = dynamic_cast<FortressScene*>(GET_SINGLE(SceneManager)->GetCurrentScene());
+			if (scene)
+				scene->ChangePlayerTurn();
+
 			GET_SINGLE(ObjectManager)->Remove(this);
 			return;
 		}
 	}
 
-	// TODO
-	if (_pos.y < -200)
+	// 소멸
+	if (_pos.y > GWinSizeY * 1.5 || _pos.y < -GWinSizeY * 1.5)
 	{
+		FortressScene* scene = dynamic_cast<FortressScene*>(GET_SINGLE(SceneManager)->GetCurrentScene());
+		if(scene)
+			scene->ChangePlayerTurn();
+
 		GET_SINGLE(ObjectManager)->Remove(this);
 		return;
 	}
@@ -93,5 +71,5 @@ void Bullet::Update()
 
 void Bullet::Render(HDC hdc)
 {
-	Utils::DrawCircle(hdc, _pos, 25);
+	Utils::DrawCircle(hdc, _pos, static_cast<int32>(_radius));
 }

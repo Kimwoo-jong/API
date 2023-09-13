@@ -24,8 +24,13 @@ public:
 	Pos		GetPos() { return _pos; }
 	void	SetPos(Pos pos) { _pos = pos; }
 
+	float GetRadius() { return _radius; }
+	void SetRadius(float radius) { _radius = radius; }
+
 protected:
 	ObjectType	_type = ObjectType::None;
 	Stat		_stat = {};
 	Pos			_pos = {};
+	Dir			_dir = Dir::LEFT;
+	float		_radius = 10.f;
 };

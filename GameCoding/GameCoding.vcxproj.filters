@@ -39,6 +39,12 @@
     <Filter Include="소스 파일\04. Resources\Game">
       <UniqueIdentifier>{09b1696f-d8df-45b7-863e-fdb71c50df70}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\01. Manager\Game">
+      <UniqueIdentifier>{7e84d6e5-b1ce-493b-9716-83320e8ce344}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\02. Scenes\Game\Fortress">
+      <UniqueIdentifier>{35858b08-da6f-4f8c-8f2d-0d36cd63bafa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameCoding.h">
@@ -86,9 +92,6 @@
     <ClInclude Include="DevScene.h">
       <Filter>소스 파일\02. Scenes\Game</Filter>
     </ClInclude>
-    <ClInclude Include="GameScene.h">
-      <Filter>소스 파일\02. Scenes\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>소스 파일\03. Objects</Filter>
     </ClInclude>
@@ -115,6 +118,18 @@
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>소스 파일\01. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Values.h">
+      <Filter>소스 파일\99. Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>소스 파일\01. Manager\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScene.h">
+      <Filter>소스 파일\02. Scenes\Game\Fortress</Filter>
+    </ClInclude>
+    <ClInclude Include="FortressScene.h">
+      <Filter>소스 파일\02. Scenes\Game\Fortress</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -158,9 +173,6 @@
     <ClCompile Include="DevScene.cpp">
       <Filter>소스 파일\02. Scenes\Game</Filter>
     </ClCompile>
-    <ClCompile Include="GameScene.cpp">
-      <Filter>소스 파일\02. Scenes\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
       <Filter>소스 파일\03. Objects</Filter>
     </ClCompile>
@@ -187,6 +199,15 @@
     </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>소스 파일\01. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>소스 파일\01. Manager\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="FortressScene.cpp">
+      <Filter>소스 파일\02. Scenes\Game\Fortress</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuScene.cpp">
+      <Filter>소스 파일\02. Scenes\Game\Fortress</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

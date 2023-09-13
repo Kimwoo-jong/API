@@ -13,8 +13,7 @@ void ObjectManager::Add(Object* object)
 		return;
 
 	auto findIt = std::find(_objects.begin(), _objects.end(), object);
-
-	if(findIt != _objects.end())
+	if (findIt != _objects.end())
 		return;
 
 	_objects.push_back(object);
@@ -28,12 +27,13 @@ void ObjectManager::Remove(Object* object)
 	auto it = std::remove(_objects.begin(), _objects.end(), object);
 	_objects.erase(it, _objects.end());
 
+	// TODO : ±¦ÂúÀ»±î?
 	delete object;
 }
 
 void ObjectManager::Clear()
 {
 	std::for_each(_objects.begin(), _objects.end(), [=](Object* obj) { delete obj; });
-	
+
 	_objects.clear();
 }

@@ -4,19 +4,22 @@
 class Bullet : public Object
 {
 public:
-	Bullet();
+	Bullet ();
 	virtual ~Bullet() override;
 
 	virtual void Init() override;
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 
-	void SetAngle(float angle) { _angle = angle; }
+public:
+	Vector GetSpeed() { return _speed; }
+	void SetSpeed(Vector speed) { _speed = speed; }
+
+	Object* GetOwner() { return _owner; }
+	void SetOwner(Object* owner) { _owner = owner; }
 
 
-protected:
-	float _angle = 0.f;
-
-	float _sumTime = 0.f;
-	Object* _target = nullptr;
+public:
+	Vector _speed = {};
+	Object* _owner = nullptr;
 };

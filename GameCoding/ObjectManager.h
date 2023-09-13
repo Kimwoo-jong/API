@@ -15,7 +15,6 @@ public:
 
 	const vector<Object*>& GetObjects() { return _objects; }
 
-
 	template<typename T>
 	T* CreateObject()
 	{
@@ -28,6 +27,7 @@ public:
 
 		return object;
 	}
+
 
 private:
 	vector<Object*> _objects;
