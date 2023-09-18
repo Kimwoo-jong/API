@@ -17,3 +17,4 @@ private:
 	bool _setOrigin = true;
 	POINT _lastPos = {};
 };
+

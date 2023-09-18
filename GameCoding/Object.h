@@ -4,8 +4,13 @@ enum class ObjectType
 {
 	None,
 	Player,
-	Monster,
 	Projectile,
+};
+
+enum class MoveDir
+{
+	Left,
+	Right,
 };
 
 class Object
@@ -21,16 +26,15 @@ public:
 public:
 	ObjectType GetObjectType() { return _type; }
 
-	Pos		GetPos() { return _pos; }
-	void	SetPos(Pos pos) { _pos = pos; }
+	Vector	GetPos() { return _pos; }
+	void	SetPos(Vector pos) { _pos = pos; }
 
-	float GetRadius() { return _radius; }
-	void SetRadius(float radius) { _radius = radius; }
+	float	GetRadius() { return _radius; }
 
 protected:
 	ObjectType	_type = ObjectType::None;
+	MoveDir		_dir = MoveDir::Right;
 	Stat		_stat = {};
-	Pos			_pos = {};
-	Dir			_dir = Dir::LEFT;
-	float		_radius = 10.f;
+	Vector		_pos = {};
+	float		_radius = 0.f;
 };

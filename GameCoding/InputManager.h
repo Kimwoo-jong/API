@@ -11,12 +11,15 @@ enum class KeyType
 	Right = VK_RIGHT,
 	SpaceBar = VK_SPACE,
 
+	KEY_1 = '1',
+	KEY_2 = '2',
+
 	W = 'W',
 	A = 'A',
 	S = 'S',
 	D = 'D',
 	Q = 'Q',
-	E = 'E',
+	E = 'E'
 };
 
 enum class KeyState
@@ -44,13 +47,13 @@ public:
 	void Update();
 
 	// ´©¸£°í ÀÖÀ» ¶§
-	bool GetButton(KeyType type) { return GetState(type) == KeyState::Press; }
+	bool GetButton(KeyType key) { return GetState(key) == KeyState::Press; }
 
 	// ¸Ç Ã³À½ ´­·¶À» ¶§
-	bool GetButtonDown(KeyType type) { return GetState(type) == KeyState::Down; }
+	bool GetButtonDown(KeyType key) { return GetState(key) == KeyState::Down; }
 
-	// ¸Ç Ã³À½ ´­·¶´Ù°¡ ¶¿ ¶§
-	bool GetButtonUp(KeyType type) { return GetState(type) == KeyState::Up; }
+	// ¸Ç Ã³À½ ´­·¶´Ù°¡ ¶ª ¶§
+	bool GetButtonUp(KeyType key) { return GetState(key) == KeyState::Up; }
 
 	POINT GetMousePos() { return _mousePos; }
 

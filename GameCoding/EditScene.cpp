@@ -129,12 +129,12 @@ void EditScene::Render(HDC hdc)
 		POINT pt2 = line.second;
 
 		Pos pos1;
-		pos1.x = (float)(pt1.x);
-		pos1.y = (float)(pt1.y);
+		pos1.x = (float)pt1.x;
+		pos1.y = (float)pt1.y;
 
 		Pos pos2;
-		pos2.x = (float)(pt2.x);
-		pos2.y = (float)(pt2.y);
+		pos2.x = (float)pt2.x;
+		pos2.y = (float)pt2.y;
 
 		Utils::DrawLine(hdc, pos1, pos2);
 	}

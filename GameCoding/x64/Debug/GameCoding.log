@@ -1,4 +1,20 @@
-﻿  Bullet.cpp
-  Player.cpp
+﻿  pch.cpp
+D:\GitRepository\API\GameCoding\Types.h(25,22): warning C4244: '초기화 중': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\GitRepository\API\GameCoding\Types.h(25,31): warning C4244: '초기화 중': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  DevScene.cpp
+  EditScene.cpp
+  Game.cpp
+D:\GitRepository\API\GameCoding\Game.cpp(52,13): warning C4244: '초기화 중': 'uint64'에서 'uint32'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GameCoding.cpp
+  InputManager.cpp
+  Object.cpp
+  ResourceBase.cpp
+  ResourceManager.cpp
+D:\GitRepository\API\GameCoding\ResourceManager.cpp(17,3): warning C4150: 불완전한 형식 'LineMesh'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+D:\GitRepository\API\GameCoding\ResourceManager.h(4,7): message : 'LineMesh' 선언을 참조하십시오.
+  Scene.cpp
+  SceneManager.cpp
+  TimeManager.cpp
+  Utils.cpp
   코드를 생성하고 있습니다...
   GameCoding.vcxproj -> D:\GitRepository\API\x64\Debug\GameCoding.exe

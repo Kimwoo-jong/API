@@ -5,4 +5,6 @@ class ResourceBase
 public:
 	ResourceBase();
 	virtual ~ResourceBase();
+
+
 };

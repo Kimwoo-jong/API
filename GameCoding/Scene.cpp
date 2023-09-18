@@ -3,10 +3,8 @@
 
 Scene::Scene()
 {
-
 }
 
 Scene::~Scene()
 {
-
 }

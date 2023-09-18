@@ -9,11 +9,6 @@ void InputManager::Init(HWND hwnd)
 
 void InputManager::Update()
 {
-	// 현재 키가 눌렸는지 확인
-	//::GetAsyncKeyState();
-
-	// 키보드 전체를 불러온 뒤 일단 저장
-	// 필요에 따라 하나씩 체크
 	BYTE asciiKeys[KEY_TYPE_COUNT] = {};
 	if (::GetKeyboardState(asciiKeys) == false)
 		return;
@@ -41,10 +36,9 @@ void InputManager::Update()
 			else
 				state = KeyState::None;
 		}
-
-		// Mouse
-		// 커서의 좌표를 알아온다.
-		::GetCursorPos(&_mousePos);
-		::ScreenToClient(_hwnd, &_mousePos);
 	}
+
+	// Mouse
+	::GetCursorPos(&_mousePos); // 커서의 좌표를 알아온다
+	::ScreenToClient(_hwnd, &_mousePos);
 }

@@ -1,4 +1,5 @@
 #pragma once
+
 class Scene
 {
 public:
@@ -10,5 +11,6 @@ public:
 	virtual void Render(HDC hdc) abstract;
 
 protected:
-	
+
 };
+

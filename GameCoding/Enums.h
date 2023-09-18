@@ -4,20 +4,21 @@ enum class SceneType
 {
 	None,
 	DevScene,
-	//
 	EditScene,
-	MenuScene,
-	FortressScene
 };
 
-enum PlayerType
+enum LAYER_TYPE
 {
-	CanonTank,
-	MissileTank
+	LAYER_BACKGROUND,
+	LAYER_OBJECT,
+	// ...
+	LAYER_UI,
+
+	LAYER_MAXCOUNT
 };
 
-enum Dir
+enum class ColliderType
 {
-	LEFT,
-	RIGHT,
+	Box,
+	Sphere,
 };

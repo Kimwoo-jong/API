@@ -1,31 +1,28 @@
 #pragma once
-#include "Object.h"
 
-class Player : public Object
+#include "FlipbookActor.h"
+
+class Flipbook;
+class Collider;
+
+class Player : public FlipbookActor
 {
+	using Super = FlipbookActor;
 public:
 	Player();
 	virtual ~Player() override;
 
-	virtual void Init() override;
-	virtual void Update() override;
+	virtual void BeginPlay() override;
+	virtual void Tick() override;
 	virtual void Render(HDC hdc) override;
 
-	wstring GetMeshKey();
+	virtual void OnComponentBeginOverlap(Collider* collider, Collider* other) override;
+	virtual void OnComponentEndOverlap(Collider* collider, Collider* other) override;
 
-	void SetPlayerType(PlayerType type) { _playerType = type; }
-	void SetPlayerId(int32 playerId) { _playerId = playerId; }
-	void SetPlayerTurn(bool turn) { _playerTurn = turn; }
-
-	int32 GetPlayerId() { return _playerId; }
-	PlayerType GetPlayerType() { return _playerType; }
-	bool GetPlayerTurn() { return _playerTurn; }
-
-	void UpdateFireAngle();
-
-public:
-	int32 _playerId = 0;
-	PlayerType _playerType = PlayerType::CanonTank;
-	bool _playerTurn = false;
-	float _fireAngle = 0.f;
+private:
+	Flipbook* _flipbookUp = nullptr;
+	Flipbook* _flipbookDown = nullptr;
+	Flipbook* _flipbookLeft = nullptr;
+	Flipbook* _flipbookRight = nullptr;
 };
+
